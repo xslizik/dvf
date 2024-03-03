@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Union</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4">Union</h1>
+        <form method="POST">
+            <div class="mb-4">
+                <label for="sport_type" class="block mb-2">Sport Type:</label>
+                <input type="text" id="sport_type" name="sport_type" class="w-full p-2 border border-gray-300 rounded">
+            </div>
+            <button type="submit" class="bg-gray-500 text-white py-2 px-4 rounded">Submit</button>
+        </form>
+        {% if results %}
+            <table class="w-full mt-4 table-fixed">
+                <thead>
+                    <tr>
+                        <th class="text-left">Name</th>
+                        <th class="text-left">Type</th>
+                        <th class="text-left">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                        <tr>
+                            <td class="border-b border-gray-200 py-2">{{ result[1] }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[3] }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>
