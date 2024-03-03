@@ -153,7 +153,7 @@ def migrate():
         db.session.add_all(sports_events)
         db.session.add_all(logins)
         db.session.commit()
-    return "True"
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
