@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 load_dotenv()
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{os.getenv("USER")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}:{os.getenv("PORT")}/{os.getenv("DATABASE")}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{os.getenv("DB_USER")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}:{os.getenv("PORT")}/{os.getenv("DATABASE")}'
 db = SQLAlchemy(app)
 
 class SportType(db.Enum):
@@ -89,7 +89,7 @@ def migrate():
         db.session.add_all(sports_events)
         db.session.add_all(logins)
         db.session.commit()
-    return {True}
+    return "True"
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)

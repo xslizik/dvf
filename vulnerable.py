@@ -8,7 +8,7 @@ app = Flask(__name__)
 def connect_to_database():
     return psycopg2.connect(
             database = os.getenv('DATABASE'),
-            user     = os.getenv('USER'),
+            user     = os.getenv('DB_USER'),
             password = os.getenv('PASSWORD'),
             host     = os.getenv('HOST'),
             port     = os.getenv('PORT')

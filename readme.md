@@ -1,4 +1,5 @@
-#  Principles of information security Damn Vulnerable Flask App 
+#  Principles of information security 
+## Damn Vulnerable Flask App 
 
 ### Create and access virtual environment
 ```bash
@@ -22,8 +23,8 @@ python vulnerable.py
 
 ### .env example
 ```bash
-DATABASE=dvf
-USER=xslizik
+DATABASE=saf
+DB_USER=xslizik
 PASSWORD=1234
 HOST=localhost
 PORT=5432
