@@ -15,6 +15,7 @@ docker run -d -p 80:80 vulnerables/web-dvwa
 ```
 
 ### Set up DVF
+You can skip postgresql container creation if you have it already installed just specify it in `.env`
 ```bash
 docker pull postgres:16-bullseye
 docker network create postgres16_network
@@ -26,8 +27,8 @@ docker run -p 5433:5432 -d \
     --name postgres16_container \
     -v pgdata:/var/lib/postgresql/data \
     postgres:16-bullseye
-docker build -t dvf .
 
+docker build -t dvf .
 docker run -p 8008:8000 -d \
     --network=postgres16_network \
     --name dvf_container \
