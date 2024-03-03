@@ -1,34 +1,38 @@
 #  Principles of information security 
 ## Damn Vulnerable Flask App 
 
-### Create and access virtual environment
+### Download docker
 ```bash
-virtualenv VE
-# windows
-.\VE\Scripts\activate
-# linux 
-source ./VE/bin/activate
-deactivate
+newgrp docker
+sudo usermod -aG docker $USER
+curl https://get.docker.com | bash
 ```
 
-### Check Your Environment
+### Set up DVWA
 ```bash
-pip install -r requirements.txt
+docker pull vulnerables/web-dvwa
+docker run -d -p 80:80 vulnerables/web-dvwa
 ```
 
-### Starting up
+### Set up DVF
 ```bash
-# first setup .env, and start
-python secure.py
-# and navigate to localhost:8000/migrate 
-python vulnerable.py
+docker pull postgres:16-bullseye
+docker network create postgres16_network
+docker run -p 5433:5432 -d \
+    --network=postgres16_network \
+    -e POSTGRES_PASSWORD=postgres \
+    -e POSTGRES_USER=postgres \
+    -e POSTGRES_DB=db \
+    --name postgres16_container \
+    -v pgdata:/var/lib/postgresql/data \
+    postgres:16-bullseye
+docker build -t dvf .
+
+docker run -p 8008:8000 -d \
+    --network=postgres16_network \
+    --name dvf_container \
+    dvf
 ```
 
-### .env example
-```bash
-DATABASE=saf
-DB_USER=xslizik
-PASSWORD=1234
-HOST=localhost
-PORT=5432
-```
+### You might have to adjust .env file according to
+docker network inspect postgres16_network -f '{{range .Containers}}{{.Name}} {{.IPv4Address}}{{end}}'
