@@ -4,7 +4,10 @@
 ### Create and access virtual environment
 ```bash
 virtualenv VE
+# windows
 .\VE\Scripts\activate
+# linux 
+source ./VE/bin/activate
 deactivate
 ```
 
