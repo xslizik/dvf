@@ -28,9 +28,9 @@
                 <tbody>
                     {% for result in results %}
                         <tr>
-                            <td class="border-b border-gray-200 py-2">{{ result.name }}</td>
-                            <td class="border-b border-gray-200 py-2">{{ result.sport_type }}</td>
-                            <td class="border-b border-gray-200 py-2">{{ result.date }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[1] }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[3] }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[2] }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
