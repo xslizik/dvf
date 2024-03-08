@@ -38,11 +38,11 @@ docker run -p 8008:8000 -d \
 ### You might have to adjust .env file according to
 docker network inspect postgres16_network -f '{{range .Containers}}{{.Name}} {{.IPv4Address}}{{end}}'
 
-### Explotation Techniques 
+### Exploitation Techniques 
 * [SQLi](./exploitation/querie.md)
 * [SQLMap + Extras](./exploitation/sqlmap.md)
 
-### Screenshot
+### [Screenshots](./exploitation/screenshots.md)
 <center>
     <img src="./screenshots/0.png">
 </center>
