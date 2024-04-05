@@ -1,14 +1,14 @@
-FROM alpine:3.19 as builder
+FROM python:3-alpine
 
-RUN apk add --no-cache python3 py3-pip libpq postgresql-client curl
+RUN apk add --no-cache postgresql-client
+
 RUN adduser -D dvf
 
 USER dvf
 
 WORKDIR /home/dvf
 
-RUN python3 -m venv venv
-ENV PATH="/home/dvf/venv/bin:$PATH"
+ENV PATH="/home/dvf/.local/bin:$PATH"
 
 COPY ./dvf .
 RUN pip3 install -r requirements.txt --no-cache-dir
