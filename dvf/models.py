@@ -29,10 +29,3 @@ logins = [
     Logins(id=1, login='admin', password='sadmin'),
     Logins(id=2, login='derrida', password='notapipe')
 ]
-
-def init_db():
-    db.create_all()
-    db.session.add_all(sports_events)
-    db.session.add_all(logins)
-    db.session.commit()
-    return db 
