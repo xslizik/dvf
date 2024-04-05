@@ -15,4 +15,4 @@ RUN pip3 install -r requirements.txt --no-cache-dir
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "export $(cat .env | xargs) && rm .env && gunicorn -b 0.0.0.0:8000 app:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]

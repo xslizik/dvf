@@ -1,4 +1,5 @@
 #!bin/bash
+
 docker rm -f $(docker ps -a -q)
 #docker image rm -f $(docker images -q)
 
@@ -17,4 +18,5 @@ docker build -t dvf .
 docker run -p 8008:8000 -d \
     --network=postgres16_network \
     --name dvf_container \
+    --env-file .env \
     dvf
