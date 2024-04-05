@@ -7,9 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <a href="/" title="Go to the homepage">
+        <img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/flask_logo_icon_145276.png" width="300" height="200" style="display: block; margin: 0 auto;">
+    </a>
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 class="text-2xl font-bold mb-4">Check Sports event</h1>
-        <form action="/blind" method="post">
+        <form method="POST">
             <div class="mb-4">
                 <label for="id" class="block mb-2">Sports event ID:</label>
                 <input type="text" id="id" name="id" class="w-full p-2 border border-gray-300 rounded" required>

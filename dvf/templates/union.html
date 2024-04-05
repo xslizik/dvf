@@ -7,6 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <a href="/" title="Go to the homepage">
+        <img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/flask_logo_icon_145276.png" width="300" height="200" style="display: block; margin: 0 auto;">
+    </a>
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 class="text-2xl font-bold mb-4">Union</h1>
         <form method="POST">
@@ -28,9 +31,9 @@
                 <tbody>
                     {% for result in results %}
                         <tr>
-                            <td class="border-b border-gray-200 py-2">{{ result.name }}</td>
-                            <td class="border-b border-gray-200 py-2">{{ result.sport_type }}</td>
-                            <td class="border-b border-gray-200 py-2">{{ result.date }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[1] }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[3] }}</td>
+                            <td class="border-b border-gray-200 py-2">{{ result[2] }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

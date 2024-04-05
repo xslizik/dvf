@@ -10,9 +10,9 @@ WORKDIR /home/dvf
 RUN python3 -m venv venv
 ENV PATH="/home/dvf/venv/bin:$PATH"
 
-COPY . .
+COPY ./dvf .
 RUN pip3 install -r requirements.txt --no-cache-dir
 
 EXPOSE 8000
 
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "dvf:app"]
+CMD ["sh", "-c", "export $(cat .env | xargs) && rm .env && gunicorn -b 0.0.0.0:8000 app:app"]
