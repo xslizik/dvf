@@ -4,10 +4,9 @@ services:
   postgres:
     image: postgres:16-bullseye
     container_name: postgres16_container
-    env_file: .env
     environment:
       POSTGRES_DB: ${DATABASE}
-      POSTGRES_USER: ${DB_USER}
+      POSTGRES_USER: ${USER}
       POSTGRES_PASSWORD: ${PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data

@@ -7,7 +7,7 @@ vulnerable = Blueprint('vulnerable', __name__)
 def connect_to_database():
     return connect(
             database = env['DATABASE'],
-            user     = env['DB_USER'],
+            user     = env['USER'],
             password = env['PASSWORD'],
             host     = env['HOST'],
             port     = env['PORT']
