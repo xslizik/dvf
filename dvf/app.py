@@ -19,4 +19,7 @@ with app.app_context():
     db.create_all()
     db.session.add_all(sports_events)
     db.session.add_all(logins)
-    db.session.commit()
+    try:
+        db.session.commit()
+    except:
+        db.session.rollback()

@@ -4,16 +4,17 @@ services:
   postgres:
     image: postgres:16-bullseye
     container_name: postgres16_container
+    env_file: .env
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: db
+      POSTGRES_DB: ${DATABASE}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
       - postgres16_network
     ports:
-      - "5433:5432"
+      - "5433:${PORT}"
 
   dvf:
     build: .
